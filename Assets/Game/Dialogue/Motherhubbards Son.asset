@@ -53,7 +53,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: TestObjective
   condition:
     and: []
 --- !u!114 &-5148132537883989611
@@ -74,7 +74,7 @@ MonoBehaviour:
   - 5b0b5504-50b6-479b-979c-bc85774dba03
   rect:
     serializedVersion: 2
-    x: 295
+    x: 300
     y: 285
     width: 200
     height: 100
@@ -109,8 +109,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 523
-    y: 282
+    x: 514
+    y: 285
     width: 200
     height: 100
   onEnterAction: 
@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: -4716720313835994501}
   - {fileID: 5020004725108046702}
   - {fileID: -6269283807570217392}
+  - {fileID: 2148828500465081519}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &905803451091767119
 MonoBehaviour:
@@ -153,11 +154,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Do I look like a doctor?
-  children: []
+  children:
+  - 0eb54e5d-da94-4554-a8d7-4572d5b0f92c
   rect:
     serializedVersion: 2
-    x: 303
-    y: 79
+    x: 299
+    y: 71
     width: 200
     height: 100
   onEnterAction: 
@@ -193,6 +195,31 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &2148828500465081519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d682c531190610744a9a5e8627450547, type: 3}
+  m_Name: 0eb54e5d-da94-4554-a8d7-4572d5b0f92c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I guess I'll have to find someone with a heart...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 512
+    y: 71
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &4190128561256330419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,8 +237,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 519
-    y: 180
+    x: 513
+    y: 184
     width: 200
     height: 100
   onEnterAction: 
@@ -236,7 +263,7 @@ MonoBehaviour:
   - 0e59cd58-70c6-44c7-80f8-6d07e27408ea
   rect:
     serializedVersion: 2
-    x: 298
+    x: 300
     y: 388
     width: 200
     height: 100

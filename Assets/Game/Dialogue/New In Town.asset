@@ -24,6 +24,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-7706724002735128974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,11 +45,13 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 796
-    y: 24
+    y: 23
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-7137721878253192398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +76,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: TestSelection
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-5808646823886583516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +102,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-3607042247456705817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +128,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-2736274835188972913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +153,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: Attack
+  condition:
+    and: []
 --- !u!114 &-2269859173898635050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +178,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: TestObjective
+  condition:
+    and: []
 --- !u!114 &-109935732593986643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +206,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +257,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &6388391180527436417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +284,8 @@ MonoBehaviour:
     height: 100
   onEnterAction: TestRootEntry
   onExitAction: 
+  condition:
+    and: []
 --- !u!114 &7354686360060116108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +311,5 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: TestAIExit
+  condition:
+    and: []
