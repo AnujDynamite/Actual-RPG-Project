@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using GameDevTV.Inventories;
 using RPG.Attributes;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Abilities
@@ -21,12 +22,19 @@ namespace RPG.Abilities
             {
                 return;
             }
+
             CooldownStore cooldownStore = user.GetComponent<CooldownStore>();
             if(cooldownStore.GetTimeRemaining(this) > 0)
             {
                 return;
             }
+
             AbilityData data = new AbilityData(user);
+
+            // Cancelling moving/fighting actions.
+            ActionScheduler actionScheduler = user.GetComponent<ActionScheduler>();
+            actionScheduler.StartAction(data);
+
             targetingStrategy.StartTargeting(data, 
                 () => {
                     TargetAcquired(data);

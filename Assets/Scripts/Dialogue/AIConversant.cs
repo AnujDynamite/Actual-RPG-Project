@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using RPG.Control;
 using UnityEngine;
 
@@ -17,17 +18,12 @@ namespace RPG.Dialogue
 
         public bool HandleRaycast(PlayerController callingController)
         {
-            if(!enabled)
+            if(!enabled || dialogue == null)
             {
                 return false;
             }
 
-            if (dialogue == null)
-            {
-                return false;
-            }
-
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !GetComponent<Fighter>().enabled)
             {
                 callingController.GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
             }
