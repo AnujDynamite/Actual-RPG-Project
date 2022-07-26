@@ -13,7 +13,7 @@ namespace RPG.Abilities.Effects
 
         public override void StartEffect(AbilityData data, Action finished)
         {
-            data.StartCoroutine(Effect(data, finished));
+            data.BeginCoroutine(Effect(data, finished));
         }
 
         private IEnumerator Effect(AbilityData data, Action finished)

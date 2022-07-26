@@ -41,7 +41,7 @@ namespace RPG.Abilities
             return user;
         }
 
-        public void StartCoroutine(IEnumerator coroutine)
+        public void BeginCoroutine(IEnumerator coroutine)
         {
             user.GetComponent<MonoBehaviour>().StartCoroutine(coroutine);
         }
