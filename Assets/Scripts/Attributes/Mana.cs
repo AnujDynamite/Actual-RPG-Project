@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Saving;
 using GameDevTV.Utils;
 using RPG.Stats;
 using UnityEngine;
 
 namespace RPG.Attributes
 {
-    public class Mana : MonoBehaviour
+    public class Mana : MonoBehaviour, ISaveable
     {
         // At Awake the game may not have fully finished loading the save data
         // which is needed for BaseStats to be populated to know the level of the character
@@ -59,6 +60,16 @@ namespace RPG.Attributes
             }
             mana.value -= manaToUse;
             return true;
+        }
+
+        public object CaptureState()
+        {
+            return mana.value;
+        }
+
+        public void RestoreState(object state)
+        {
+            mana.value = (float)state;
         }
     }
 }

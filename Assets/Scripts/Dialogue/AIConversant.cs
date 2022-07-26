@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using RPG.Combat;
 using RPG.Control;
 using UnityEngine;
 
@@ -23,7 +22,7 @@ namespace RPG.Dialogue
                 return false;
             }
 
-            if (Input.GetMouseButtonDown(0) && !GetComponent<Fighter>().enabled)
+            if (Input.GetMouseButtonDown(0))
             {
                 callingController.GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
             }

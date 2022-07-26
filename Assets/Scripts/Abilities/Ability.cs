@@ -43,6 +43,12 @@ namespace RPG.Abilities
 
         private void TargetAcquired(AbilityData data)
         {
+            // If we cancel using ability due to death or doing something else
+            // while targeting.
+            if(data.IsCancelled())
+            {
+                return;
+            }
             Mana mana = data.GetUser().GetComponent<Mana>();
             if(!mana.UseMana(manaCost))
             {

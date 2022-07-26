@@ -47,16 +47,18 @@ namespace RPG.Abilities.Targeting
                     {
                         // Absorb the whole mouse click
                         yield return new WaitWhile(() => Input.GetMouseButton(0));
-                        playerController.enabled = true;
-                        targetingPrefabInstance.gameObject.SetActive(false);
                         data.SetTargetedPoint(raycastHit.point);
                         data.SetTargets(GetGameObjectsInRadius(raycastHit.point));
-                        finished();
-                        yield break;
+                        // Only use break here rather than yield break as this
+                        // will continue the code after the while loop.
+                        break;
                     }
                 }
                 yield return null;
             }
+            targetingPrefabInstance.gameObject.SetActive(false);
+            playerController.enabled = true;
+            finished();
         }
 
         private IEnumerable<GameObject> GetGameObjectsInRadius(Vector3 point)
