@@ -15,12 +15,19 @@ namespace RPG.Stats
         {
             BuildLookup();
 
+            // No list/array added here so this check stops issues.
+            if (!lookupTable[characterClass].ContainsKey(stat))
+            {
+                return 0;
+            }
+
             float[] levels = lookupTable[characterClass][stat];
 
             if(levels.Length == 0)
             {
                 return 0;
             }
+
             if (levels.Length < level)
             {
                 // Gives the last element (level) in the progression array
