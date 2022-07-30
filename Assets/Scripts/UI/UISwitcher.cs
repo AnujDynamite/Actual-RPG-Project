@@ -10,6 +10,7 @@ namespace RPG.UI
 
         private void Start()
         {
+            if (entryPoint == null) return;
             SwitchTo(entryPoint);
         }
 
