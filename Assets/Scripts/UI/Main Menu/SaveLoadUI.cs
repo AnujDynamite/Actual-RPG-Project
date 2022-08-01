@@ -16,12 +16,15 @@ namespace RPG.UI.MainMenu
         // The switcher gameObject de-activates this component so OnEnable is required.
         private void OnEnable()
         {
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            if (savingWrapper == null) return;
+
             // Clearing potential leftover content.
-            foreach(Transform child in contentRoot)
+            foreach (Transform child in contentRoot)
             {
                 Destroy(child.gameObject);
             }
-            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+
             foreach(string save in savingWrapper.ListSaves())
             {
                 GameObject buttonInstance = Instantiate(buttonPrefab, contentRoot);

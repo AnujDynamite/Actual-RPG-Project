@@ -12,7 +12,8 @@ namespace RPG.SceneManagement
         private const string currentSaveKey = "currentSaveName";
         [SerializeField] float fadeInTime = 0.5f;
         [SerializeField] float fadeOutTime = 0.5f;
-        [SerializeField] int firstFieldBuildIndex = 1;
+        [SerializeField] int firstLevelBuildIndex = 1;
+        [SerializeField] int menuLevelBuild = 0;
 
         public void ContinueGame() 
         {
@@ -42,6 +43,11 @@ namespace RPG.SceneManagement
         {
             SetCurrentSave(saveFile);
             ContinueGame();
+        }
+
+        public void LoadMenu()
+        {
+            StartCoroutine(LoadMenuScene());
         }
 
         public void Load()
@@ -85,7 +91,15 @@ namespace RPG.SceneManagement
         {
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeOutTime);
-            yield return SceneManager.LoadSceneAsync(firstFieldBuildIndex); // 0 = Main menu, 1 = First level.
+            yield return SceneManager.LoadSceneAsync(firstLevelBuildIndex); // 0 = Main menu, 1 = First level.
+            yield return fader.FadeIn(fadeInTime);
+        }
+
+        private IEnumerator LoadMenuScene()
+        {
+            Fader fader = FindObjectOfType<Fader>();
+            yield return fader.FadeOut(fadeOutTime);
+            yield return SceneManager.LoadSceneAsync(menuLevelBuild); // 0 = Main menu, 1 = First level.
             yield return fader.FadeIn(fadeInTime);
         }
 
