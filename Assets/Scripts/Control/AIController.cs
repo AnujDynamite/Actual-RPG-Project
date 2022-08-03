@@ -7,6 +7,7 @@ using RPG.Movement;
 using UnityEngine;
 using RPG.Attributes;
 using GameDevTV.Utils;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -40,6 +41,7 @@ namespace RPG.Control
             player = GameObject.FindWithTag("Player");
 
             guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+            guardPosition.ForceInit();
         }
 
         private Vector3 GetGuardPosition()
@@ -47,8 +49,15 @@ namespace RPG.Control
             return transform.position;
         }
 
-        private void Start() {
-            guardPosition.ForceInit();
+        public void Reset()
+        {
+            // Resetting enemy position, aggro timers and waypoint the AI marches towards first when player respawns.
+            NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.Warp(guardPosition.value);
+            timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArrivedAtWaypoint = Mathf.Infinity;
+            timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
         }
 
         private void Update()
