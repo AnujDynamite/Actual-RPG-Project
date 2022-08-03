@@ -55,14 +55,11 @@ namespace RPG.Control
         {
             foreach(AIController enemyController in FindObjectsOfType<AIController>())
             {
-                if(!enemyController.GetComponent<Health>().IsDead())
-                {
-                    enemyController.Reset();
-                }
                 Health health = enemyController.GetComponent<Health>();
                 // Can remove the IsDead check to "revive" dead enemies.
                 if(health && !health.IsDead())
                 {
+                    enemyController.Reset();
                     health.Heal(health.GetMaxHealthPoints() * enemyHealthRegenPercentage / 100);
                 }
             }

@@ -70,12 +70,13 @@ namespace RPG.SceneManagement
             return GetComponent<SavingSystem>().ListSaves();
         }
 
-        private void SetCurrentSave(string saveFile)
+        public void SetCurrentSave(string saveFile)
         {
             PlayerPrefs.SetString(currentSaveKey, saveFile);
+            print("Current save: " + saveFile);
         }
 
-        private string GetCurrentSave()
+        public string GetCurrentSave()
         {
             return PlayerPrefs.GetString(currentSaveKey);
         }

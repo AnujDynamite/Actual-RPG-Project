@@ -13,6 +13,7 @@ namespace RPG.UI.MainMenu
     {
         LazyValue<SavingWrapper> savingWrapper;
         [SerializeField] TMP_InputField newGameNameField;
+        [SerializeField] Button continueButton;
 
         private void Awake()
         {
@@ -26,12 +27,20 @@ namespace RPG.UI.MainMenu
 
         public void Continue()
         {
-            savingWrapper.value.ContinueGame();
+            if (savingWrapper.value != null)
+            {
+                savingWrapper.value.ContinueGame();
+            }
         }
 
         public void New()
         {
             savingWrapper.value.NewGame(newGameNameField.text);
+        }
+
+        public void DeleteSave()
+        {
+            savingWrapper.value.Delete();
         }
 
         public void QuitGame()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.SceneManagement;
@@ -12,11 +13,15 @@ namespace RPG.UI.MainMenu
         [SerializeField] Transform contentRoot;
         [SerializeField] GameObject buttonPrefab;
 
+        public event Action onChange;
+
         // OnEnable is triggered when the parent gameObject is re-activated.
         // The switcher gameObject de-activates this component so OnEnable is required.
         private void OnEnable()
         {
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            onChange += RefreshUI;
+            
             if (savingWrapper == null) return;
 
             // Clearing potential leftover content.
@@ -33,9 +38,24 @@ namespace RPG.UI.MainMenu
                 Button button = buttonInstance.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() =>
                 {
-                    savingWrapper.LoadGame(save);
+                    savingWrapper.SetCurrentSave(save);
+                    if (savingWrapper.GetCurrentSave() == save)
+                    {
+                        button.interactable = false;
+                    }
+                    else if (savingWrapper.GetCurrentSave() != save)
+                    {
+                        button.interactable = true;
+                    }
+                    //savingWrapper.LoadGame(save);
                 });
+
             }
+        }
+
+        private void RefreshUI()
+        {
+            print("We are here.");
         }
     }
 }
