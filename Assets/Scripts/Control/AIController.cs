@@ -58,6 +58,10 @@ namespace RPG.Control
             timeSinceArrivedAtWaypoint = Mathf.Infinity;
             timeSinceAggrevated = Mathf.Infinity;
             currentWaypointIndex = 0;
+            if(!health.IsDead())
+            {
+                GetComponent<Collider>().enabled = true;
+            }
         }
 
         private void Update()

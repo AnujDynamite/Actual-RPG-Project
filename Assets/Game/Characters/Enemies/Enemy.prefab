@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 1389610446862130822, guid: e017b729393195445bb28e6d899d2d1f,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2251043482584258712, guid: e017b729393195445bb28e6d899d2d1f,
         type: 3}
       propertyPath: foreground
@@ -27,6 +32,11 @@ PrefabInstance:
       propertyPath: healthComponent
       value: 
       objectReference: {fileID: 5224142304942228539}
+    - target: {fileID: 3615714379535104011, guid: e017b729393195445bb28e6d899d2d1f,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8780335660456690937, guid: e017b729393195445bb28e6d899d2d1f,
         type: 3}
       propertyPath: m_RootOrder
@@ -80,6 +90,11 @@ PrefabInstance:
     - target: {fileID: 8780335660456690937, guid: e017b729393195445bb28e6d899d2d1f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150255671972533447, guid: e017b729393195445bb28e6d899d2d1f,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -58,6 +58,7 @@ namespace RPG.Attributes
             {
                 onDie.Invoke();
                 AwardExperience(instigator);
+                GetComponent<Collider>().enabled = false;
             } 
             else
             {
