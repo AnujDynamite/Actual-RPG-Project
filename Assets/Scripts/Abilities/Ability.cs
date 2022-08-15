@@ -56,9 +56,9 @@ namespace RPG.Abilities
             }
             CooldownStore cooldownStore = data.GetUser().GetComponent<CooldownStore>();
             cooldownStore.StartCooldown(this, cooldownTime);
-            foreach (var filterStrategy in filterStrategies)
+            foreach (var filter in filterStrategies)
             {
-                data.SetTargets(filterStrategy.Filter(data.GetTargets()));
+                data.SetTargets(filter.Filter(data.GetTargets()));
             }
             
             foreach (var effect in effectStrategies)

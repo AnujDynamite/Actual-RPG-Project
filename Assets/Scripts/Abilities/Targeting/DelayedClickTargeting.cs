@@ -15,6 +15,7 @@ namespace RPG.Abilities.Targeting
         [SerializeField] float areaAffectRadius;
         [SerializeField] Transform targetingPrefab;
 
+        // Keeping a reference of the prefab to reuse rather than destroy and recreate.
         Transform targetingPrefabInstance = null;
 
         public override void StartTargeting(AbilityData data, Action finished)
