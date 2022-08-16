@@ -9,7 +9,8 @@ namespace RPG.UI
 {
     public class PauseMenuUI : MonoBehaviour
     {
-        [SerializeField] Button saveButton, quitButton;
+        // TimeMultiplier is used solely for faster testing.
+        [SerializeField] float timeMultiplier = 1.0f;
         PlayerController playerController;
 
         private void Awake()
@@ -27,7 +28,7 @@ namespace RPG.UI
         private void OnDisable()
         {
             if (playerController == null) return;
-            Time.timeScale = 1;
+            Time.timeScale = timeMultiplier;
             playerController.enabled = true;
         }
 

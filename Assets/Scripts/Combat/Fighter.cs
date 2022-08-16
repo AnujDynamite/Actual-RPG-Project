@@ -14,6 +14,7 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
+        [SerializeField] float autoAttackRange = 4f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
@@ -49,7 +50,12 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
 
             if (target == null) return;
-            if (target.IsDead()) return;
+            if (target.IsDead())
+            {
+                target = FindNewTargetInRange();
+                // No enemies within auto-attack range.
+                if (target == null) return;
+            }
 
             if (!GetIsInRange(target.transform))
             {
@@ -112,6 +118,38 @@ namespace RPG.Combat
                 // This will trigger the Hit() event.
                 TriggerAttack();
                 timeSinceLastAttack = 0;
+            }
+        }
+
+        private Health FindNewTargetInRange()
+        {
+            Health best = null;
+            float bestDistance = Mathf.Infinity;
+            foreach(var candidate in FindAllTargetsInRange())
+            {
+                float candidateDistance = Vector3.Distance(transform.position, candidate.transform.position);
+                if(candidateDistance < bestDistance)
+                {
+                    best = candidate;
+                    bestDistance = candidateDistance;
+                }
+            }
+            return best;
+        }
+
+        // Finding all eligible targets with a health component.
+        // Currently used to initiate auto-attacking nearby enemies.
+        private IEnumerable<Health> FindAllTargetsInRange()
+        {
+            RaycastHit[] raycastHits = Physics.SphereCastAll(transform.position, autoAttackRange, Vector3.up);
+            foreach (var hit in raycastHits)
+            {
+                Health health = hit.transform.GetComponent<Health>();
+                // Checks for health component, if the unit is dead, or if it is ourself.
+                if (health == null) continue;
+                if (health.IsDead()) continue;
+                if (health.gameObject == gameObject) continue;
+                yield return health;
             }
         }
 
